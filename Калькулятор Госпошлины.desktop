@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Калькулятор Госпошлины
+Exec=python3 /home/max/GOSPOSHLINA_2.py
+Comment=
+Terminal=false
+PrefersNonDefaultGPU=false
+Icon=/media/max/UDISK/Pictures/ICONS/калькульь.png
+Type=Application
