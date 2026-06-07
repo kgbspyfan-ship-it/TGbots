@@ -8,10 +8,10 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 import yadisk
 import openpyxl
 from openpyxl import Workbook
-from dotenv import load_dotenv  # ← ДОБАВЬТЕ ЭТУ СТРОЧКУ
+from dotenv import load_dotenv
 
 # ===== ЗАГРУЗКА ПЕРЕМЕННЫХ ОКРУЖЕНИЯ =====
-load_dotenv()  # Для локальной разработки ← ДОБАВЬТЕ ЭТУ СТРОЧКУ
+load_dotenv()  # Для локальной разработки
 
 # ===== КОНФИГУРАЦИЯ ИЗ ПЕРЕМЕННЫХ ОКРУЖЕНИЯ =====
 YANDEX_OAUTH_TOKEN = os.getenv('YANDEX_OAUTH_TOKEN')
@@ -19,26 +19,19 @@ YANDEX_CLIENT_ID = os.getenv('YANDEX_CLIENT_ID')
 YANDEX_CLIENT_SECRET = os.getenv('YANDEX_CLIENT_SECRET')
 TELEGRAM_BOT_TOKEN = os.getenv('BOT_TOKEN')
 
-# Проверка обязательных переменных ← ДОБАВЬТЕ ЭТОТ БЛОК ПРОВЕРКИ
+# Проверка обязательных переменных
 if not all([YANDEX_OAUTH_TOKEN, YANDEX_CLIENT_ID, YANDEX_CLIENT_SECRET, TELEGRAM_BOT_TOKEN]):
     missing_vars = []
     if not YANDEX_OAUTH_TOKEN: missing_vars.append('YANDEX_OAUTH_TOKEN')
     if not YANDEX_CLIENT_ID: missing_vars.append('YANDEX_CLIENT_ID')
     if not YANDEX_CLIENT_SECRET: missing_vars.append('YANDEX_CLIENT_SECRET')
     if not TELEGRAM_BOT_TOKEN: missing_vars.append('BOT_TOKEN')
-    
+
     error_msg = f"❌ Отсутствуют переменные окружения: {', '.join(missing_vars)}"
     logging.error(error_msg)
     raise ValueError(error_msg)
 
-# Настройка логирования ← ЭТОТ БЛОК ОСТАВЬТЕ БЕЗ ИЗМЕНЕНИЙ
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
-logger = logging.getLogger(__name__)
-
-# Настройка логирования
+# ===== НАСТРОЙКА ЛОГИРОВАНИЯ =====
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
