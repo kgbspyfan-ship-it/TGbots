@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.coverage.*
+.tox/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# IDE / editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temp / runtime
+tmp/
+temp/
+*.tmp
+*.bak
+temp_user_db.json
+temp_actions.log
+temp.xlsx
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+secrets.json
+
+# Heroku / Procfile artifacts
+heroku.ini
